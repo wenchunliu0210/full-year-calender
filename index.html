@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full Year Calendar</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+  <div id="full-year-calendar-app">
+    <div
+      ref="yearPicker"
+      class="year-picker"
+      @click="focusYearPicker"
+    >
+      <input
+        v-if="isYearPickerFocused"
+        ref="year"
+        v-model="year"
+        type="number"
+        class="input-year"
+        @keyup.enter="changeYear"
+        @blur="changeYear"
+      >
+      <div v-else class="">{{ year }}</div>
+    </div>
+    <table class="full-year-calendar">
+      <tr class="days-of-weeks">
+        <th
+          v-for="num in 42"
+          :key="`day-title-${num}`"
+          class="day-title"
+          :class="{ 'is-weekend': isWeekend(num) }"
+        >
+          {{ getDays(num) }}
+        </th>
+      </tr>
+      <tr v-for="month in 12" :key="month" class="days-of-weeks">
+        <td
+          v-for="count in 42"
+          :key="`day-${count}`"
+          class="day"
+          :class="{ 'is-weekend': isWeekend(count) }"
+        >
+          {{ getDates(month, count) }}
+        </td>
+      </tr>
+    </table>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>

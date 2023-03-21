@@ -1,0 +1,44 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.full-year-calendar {
+  width: 100%;
+}
+
+.year-picker {
+  width: 160px;
+  height: 24px;
+  margin: 16px auto 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+
+.input-year {
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+}
+
+.day-title {
+  text-align: center;
+  background-color: rgba(0, 0, 0, .2);
+}
+
+.day {
+  height: 40px;
+  text-align: center;
+}
+.is-weekend {
+  color: red;
+}
