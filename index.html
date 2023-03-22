@@ -25,27 +25,27 @@
         @keyup.enter="changeYear"
         @blur="changeYear"
       >
-      <div v-else class="">{{ year }}</div>
+      <div v-else>{{ year }}</div>
     </div>
     <table class="full-year-calendar">
       <tr class="days-of-weeks">
         <th
-          v-for="num in 42"
-          :key="`day-title-${num}`"
+          v-for="day in 42"
+          :key="`day-title-${day}`"
           class="day-title"
-          :class="{ 'is-weekend': isWeekend(num) }"
+          :class="{ 'is-weekend': isWeekend(day) }"
         >
-          {{ getDays(num) }}
+          {{ getDayTitles(day) }}
         </th>
       </tr>
       <tr v-for="month in 12" :key="month" class="days-of-weeks">
         <td
-          v-for="count in 42"
-          :key="`day-${count}`"
+          v-for="day in 42"
+          :key="`day-${day}`"
           class="day"
-          :class="{ 'is-weekend': isWeekend(count) }"
+          :class="{ 'is-weekend': isWeekend(day) }"
         >
-          {{ getDates(month, count) }}
+          {{ getDates(month, day) }}
         </td>
       </tr>
     </table>

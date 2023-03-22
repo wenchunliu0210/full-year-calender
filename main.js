@@ -1,12 +1,10 @@
 var app = new Vue({
     el: '#full-year-calendar-app',
     data: {
-      days: ['日', '一', '二', '三', '四', '五', '六'],
+      dayTitles: ['日', '一', '二', '三', '四', '五', '六'],
       year: null,
       fullYear: [],
       isYearPickerFocused: true
-    },
-    computed: {
     },
    async mounted() {
       await this.$nextTick()
@@ -31,14 +29,14 @@ var app = new Vue({
           }
         }
       },
-      getDays (num) {
-        return this.days[(num - 1) % 7]
+      getDayTitles (day) {
+        return this.dayTitles[(day - 1) % 7]
       },
-      getDates (month, count) {
-        return this.fullYear[month - 1][count - 1] || ''
+      getDates (month, day) {
+        return this.fullYear[month - 1][day - 1] || ''
       },
-      isWeekend (num) {
-        return (num - 1) % 7 === 0 || (num - 1) % 7 === 6
+      isWeekend (day) {
+        return (day - 1) % 7 === 0 || (day - 1) % 7 === 6
       },
       changeYear () {
         this.isYearPickerFocused = false
