@@ -39,6 +39,9 @@
         </th>
       </tr>
       <tr v-for="month in 12" :key="month" class="days-of-weeks">
+        <td class="day">
+          {{ getMonthTitles(month) }}
+        </td>
         <td
           v-for="day in 42"
           :key="`day-${day}`"

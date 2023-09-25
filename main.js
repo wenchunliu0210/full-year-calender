@@ -1,7 +1,8 @@
 var app = new Vue({
     el: '#full-year-calendar-app',
     data: {
-      dayTitles: ['日', '一', '二', '三', '四', '五', '六'],
+      dayTitles: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fir', 'Sat'],
+      monthTitles: ['Jan.', 'Feb.', 'March', 'April', 'May', 'June', 'July', 'Aug.', 'Sept.', 'Oct.', 'Nov.', 'Dec.'],
       year: null,
       fullYear: [],
       isYearPickerFocused: true
@@ -28,6 +29,9 @@ var app = new Vue({
             day++
           }
         }
+      },
+      getMonthTitles (month) {
+        return this.monthTitles[month - 1]
       },
       getDayTitles (day) {
         return this.dayTitles[(day - 1) % 7]
